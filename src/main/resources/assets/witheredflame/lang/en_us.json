@@ -1,0 +1,12 @@
+{
+  "block.witheredflame.withered_stone": "Withered Stone",
+  "block.witheredflame.withered_dirt": "Withered Dirt",
+  "block.witheredflame.withered_grass_block": "Withered Grass Block",
+  "block.witheredflame.withered_sand": "Withered Sand",
+  "block.witheredflame.withered_red_sand": "Withered Red Sand",
+  "block.witheredflame.withered_stripped_oak_log": "Withered Stripped Oak Log",
+  "block.witheredflame.withered_dead_bush": "Withered Dead Bush",
+  "block.witheredflame.withered_flame": "Withered Flame",
+  "block.witheredflame.persistent_withered_flame": "Persistent Withered Flame",
+  "item.witheredflame.withered_ember": "Withered Ember"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "witheredflame:block/withered_grass_block_top",
+    "side": "witheredflame:block/withered_grass_block_side",
+    "bottom": "witheredflame:block/withered_dirt"
+  }
+}
