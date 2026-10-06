@@ -1,7 +1,7 @@
 {
-  "variants": {
-    "axis=y": { "model": "witheredflame:block/withered_log" },
-    "axis=z": { "model": "witheredflame:block/withered_log", "x": 90 },
-    "axis=x": { "model": "witheredflame:block/withered_log", "x": 90, "y": 90 }
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "witheredflame:block/withered_log_top",
+    "side": "witheredflame:block/withered_log"
   }
 }

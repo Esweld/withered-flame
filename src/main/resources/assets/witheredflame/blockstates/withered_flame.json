@@ -1,0 +1,6 @@
+{
+  "multipart": [
+    { "apply": { "model": "witheredflame:block/withered_fire_0" } },
+    { "apply": { "model": "witheredflame:block/withered_fire_1" } }
+  ]
+}

@@ -2,16 +2,16 @@ package net.esweld.witheredflame;
 
 import com.mojang.logging.LogUtils;
 import net.esweld.witheredflame.block.ModBlocks;
+import net.esweld.witheredflame.particle.ModParticles;
+import net.esweld.witheredflame.particle.WitheredEmberParticle;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
@@ -24,12 +24,9 @@ public class WitheredFlame {
         IEventBus modEventBus = context.getModEventBus();
         ModBlocks.BLOCKS.register(modEventBus);
         ModBlocks.ITEMS.register(modEventBus);
-        modEventBus.addListener(this::commonSetup);
+        ModParticles.PARTICLES.register(modEventBus);
         modEventBus.addListener(this::addCreative);
         MinecraftForge.EVENT_BUS.register(this);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event) {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
@@ -47,15 +44,11 @@ public class WitheredFlame {
         }
     }
 
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Withered Flame loaded");
-    }
-
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event) {
+        public static void registerParticles(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.WITHERED_EMBER.get(), WitheredEmberParticle.Provider::new);
         }
     }
 }
